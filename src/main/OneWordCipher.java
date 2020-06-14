@@ -18,7 +18,7 @@ public class OneWordCipher extends Transposition {
     private String[] codebook;
 
     /** Delimiter used to seperate words **/
-    private char delim = '/';
+    private char delim = ' ';
 
     public OneWordCipher(String msg, String[] codebook) {
         super(msg);
@@ -165,7 +165,7 @@ public class OneWordCipher extends Transposition {
      */
     public static OneWordCipher PhoneticCoder(String message) {
         return new OneWordCipher(message, new String[] {
-               "Alpha", "Bravo", "Charlie", "Delta",
+               "Alfa", "Bravo", "Charlie", "Delta",
                "Echo", "Foxtrot", "Golf", "Hotel",
                "India", "Juliet", "Kilo", "Lemur",
                "Mike", "November", "Oscar", "Papa",

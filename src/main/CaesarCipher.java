@@ -45,7 +45,7 @@ public class CaesarCipher extends Substitution {
         int intKey = getAbsChar(key);
 
         for (int i = 0; i < msg.length(); i++) {
-            char c = getMessage().charAt(i);
+            char c = msg.charAt(i);
             sb.append(encodeChar(c, intKey));
         }
 
