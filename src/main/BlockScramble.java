@@ -40,4 +40,10 @@ public abstract class BlockScramble extends TextCoder {
      * @return The decoded block of text
      */
     protected abstract String decodeBlock(String block);
+
+    /**
+     * Gets the block size of this block scramble
+     * @return the block size
+     */
+    public abstract int getBlockSize();
 }

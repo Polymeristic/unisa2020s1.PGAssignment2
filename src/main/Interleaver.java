@@ -150,7 +150,8 @@ public class Interleaver extends BlockScramble {
      * Gets the block size of the cipher
      * @return Block size
      */
-    private int getBlockSize() {
+    @Override
+    public int getBlockSize() {
         return blockWidth * blockHeight;
     }
 }
