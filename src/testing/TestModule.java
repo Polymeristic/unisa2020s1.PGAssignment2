@@ -49,7 +49,7 @@ public class TestModule {
     public boolean assertDecodingSuccess(String expected) {
         if (coder.isCoded()) {
             try {
-                if (!coder.decodeMessage()) return showFail( "Encoding failed.");
+                if (!coder.decodeMessage()) return showFail( "Decoding failed.");
             } catch (Exception e) {
                 return showFail(e.getMessage());
             }
@@ -77,7 +77,7 @@ public class TestModule {
      */
     public boolean assertDecodingFail() {
         try {
-            if (coder.decodeMessage()) return showFail( "Encoding failed.");
+            if (coder.decodeMessage()) return showFail( "Decoding succeeded where it should have failed.");
         } catch (Exception ignored) { }
         return showSuccess();
     }

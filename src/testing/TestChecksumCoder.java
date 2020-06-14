@@ -10,6 +10,8 @@ public class TestChecksumCoder extends Test {
         testCase1();
         testCase2();
         testCase3();
+        testCase4();
+        testCase5();
     }
 
     public static void testCase1() {
@@ -35,5 +37,26 @@ public class TestChecksumCoder extends Test {
 
         TestModule module = new TestModule(cipher, "CHECKSUM_DECODING_TEST");
         module.assertDecodingSuccess(decoded);
+    }
+
+    public static void testCase4() {
+        String decoded = "Who controls the ???? controls the future. Who controls the present controls the past.";
+        String encoded = "WhoE controlsG theE paYIC controlsG theE future.K WhoE controlsG theE presentI controlsG theE past.C";
+
+        ChecksumCoder cipher = new ChecksumCoder(encoded, true, new int[] { 8, 4 });
+        cipher.setHandleExcept(false);
+
+        TestModule module = new TestModule(cipher, "CHECKSUM_ERROR_DECODE_TEST");
+        module.assertDecodingSuccess(decoded);
+    }
+
+    public static void testCase5() {
+        String encoded = "WhoE controlsG theE paYIC controlsG theE future.K WhoE controlsG theE presentI controlsG theE past.C";
+
+        ChecksumCoder cipher = new ChecksumCoder(encoded, true, new int[] { 8, 4 });
+        cipher.setHandleExcept(true);
+
+        TestModule module = new TestModule(cipher, "CHECKSUM_ERROR_TEST");
+        module.assertDecodingFail();
     }
 }

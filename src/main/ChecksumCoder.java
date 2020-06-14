@@ -1,14 +1,8 @@
 package main;
 
+import testing.TestModule;
+
 public class ChecksumCoder extends ErrorDetection {
-    public static void main(String[] a) throws DecodeErrorException {
-        ChecksumCoder c = new ChecksumCoder("To err is human but to forgive is divine.");
-        c.encode();
-
-        c.setMessage("ToX errS isK humanO butE toX forgiveV isK divine.D", true);
-
-        c.decode();
-    }
 
     /** Weights for the checksum */
     private int[] weights = new int[] { 3, 5 };

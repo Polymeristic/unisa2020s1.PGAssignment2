@@ -1,5 +1,9 @@
 package main;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public abstract class TextCoder {
 
 	// --- CONSTANT VARIABLES ---
@@ -119,8 +123,17 @@ public abstract class TextCoder {
 	 * @return true on success, false on failure.
 	 */
 	public boolean encodeAndWriteToFile(String fname) {
-		System.out.println("DELETE THIS LINE AND WRITE THIS METHOD PROPERLY");
-		return false;
+		if (!encodeMessage()) return false;
+
+		try {
+			BufferedWriter writer;
+			writer = new BufferedWriter(new FileWriter(fname));
+			writer.write(getMessage());
+
+			writer.close();
+		} catch (IOException e) { return false; }
+
+		return true;
 	}
 
 	// -- PRIVATE IMPLEMENTATION METHODS ---
