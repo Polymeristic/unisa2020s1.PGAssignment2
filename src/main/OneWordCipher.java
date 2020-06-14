@@ -59,6 +59,35 @@ public class OneWordCipher extends Transposition {
         this.delim = delim;
     }
 
+    /**
+     * Create TextCoder and set both message AND its state.
+     * No check is performed to see if the message is coded or not;
+     * It is the responsibility of the caller.
+     * @param msg the message
+     * @param codebook codebook used for message translation
+     * @param delim delimiter used to separate words
+     */
+    public OneWordCipher(String msg, String codebook, char delim) {
+        super(msg);
+        this.codebook = getWords(codebook);
+        this.delim = delim;
+    }
+
+    /**
+     * Create TextCoder and set both message AND its state.
+     * No check is performed to see if the message is coded or not;
+     * It is the responsibility of the caller.
+     * @param msg the message
+     * @param codebook codebook used for message translation
+     * @param isC true if message is coded, false if not (plain text).
+     * @param delim delimiter used to separate words
+     */
+    public OneWordCipher(String msg, boolean isC, String codebook, char delim) {
+        super(msg, isC);
+        this.codebook = getWords(codebook);
+        this.delim = delim;
+    }
+
     @Override
     protected boolean encode() {
         if (getMessage() == null || codebook == null || codebook.length != ALPHABET_LENGTH)

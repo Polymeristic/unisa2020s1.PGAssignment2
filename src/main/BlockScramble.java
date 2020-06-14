@@ -23,7 +23,7 @@ public abstract class BlockScramble extends TextCoder {
      * @param dLength Desired length
      * @return A string with required padding to achieve a desired length
      */
-    public static String padding(String text, int dLength) {
+    public String padding(String text, int dLength) {
         return String.format("%-" + dLength + "s", text);
     }
 

@@ -1,19 +1,6 @@
 package main;
 
 public class CaesarCipher extends Substitution {
-    public static void main(String[] s) throws DecodeErrorException {
-        CaesarCipher c = CaesarCipher.rot13("CONGRATULATIONS, YOU HAVE SUCCESSFULLY DECRYPTED THE ROTTHIRTEEN (OR CAESAR-SHIFT N) CIPHER!");
-
-        c.setKeepPunct(true);
-        c.encode();
-
-        System.out.println(c.getMessage());
-
-        c.decode();
-
-        System.out.println(c.getMessage());
-    }
-
     /**
      * Create a new CaesarCipher
      * @param msg Message to use
